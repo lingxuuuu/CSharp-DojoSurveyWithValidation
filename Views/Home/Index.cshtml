@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<body>
+@using dojoSurveyWithValidation.Models
+@model Survey
+
+    <div class="box">
+        <h1>Dojo Survey</h1>
+        <form asp-action="register" method='post'>
+            <span asp-validation-for="Name"></span>
+            <label asp-for="Name">Full Name:</label>
+            <input asp-for="Name">
+            
+            <span asp-validation-for="Dojo_location"></span>
+            <label asp-for="Dojo_location">Dojo Location:</label>
+                <select asp-for="Dojo_location">
+                    <option value="Chicago">Chicago, IL</option>
+                    <option value="San Francisco">San Francisco, CA</option>
+                    <option value="Tysons">Tysons Corner, VA</option>
+                    <option value="Dalls">Dallas, TX</option>
+                </select>
+            <span asp-validation-for="Favorite_language"></span>
+            <label asp-for="Favorite_language">Favorite Language:</label>
+                <select asp-for="Favorite_language">
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="HTML">HTML</option>
+                    <option value="Java">Java</option>
+                </select>
+            <span asp-validation-for="Comments"></span>
+            <label asp-for="Comments">Comments:</label>
+                <textarea asp-for="Comments"></textarea>
+                <p><input type="submit" value="Submit"></p>
+        </form>
+    </div>
+</body>
